@@ -23,12 +23,19 @@
   section h2{margin:0 0 10px;font-size:17px;color:var(--green-d);}
   ul{margin:0;padding-left:20px;}
   li{margin:7px 0;font-size:15px;}
-  .contact{background:#e7f1ed;border-radius:14px;padding:18px 20px;margin-top:20px;font-size:14.5px;}
+  .contact{background:#e7f1ed;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:20px;font-size:14.5px;}
   a{color:var(--green);}
   footer{text-align:center;color:var(--muted);font-size:12.5px;margin-top:26px;}
+  .tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:4px;}
+  table{border-collapse:collapse;width:100%;min-width:520px;font-size:14px;}
+  th,td{text-align:left;vertical-align:top;padding:9px 10px;border-bottom:1px solid var(--line);}
+  th{color:var(--green-d);font-weight:700;white-space:nowrap;}
+  code{background:rgba(31,110,92,.09);padding:1px 5px;border-radius:5px;font-size:12.5px;}
   @media(prefers-color-scheme:dark){
     :root{--bg:#0f1613;--card:#161f1b;--ink:#e7efea;--muted:#9fb0a8;--line:#26332d;}
     .intro,.contact{background:#16241e;}
+    header h2,section h2{color:#7fd0b6;}
+    code{background:rgba(127,208,182,.14);}
   }
 </style>
 </head>
@@ -41,15 +48,16 @@
   <div class="meta">
     App: Namaz Shikkha, Quran &amp; Hadith (com.techeasylife.namajshikkha)<br>
     Developer: Monirujjaman Monjil — Tech Easy Life<br>
-    Last updated: 8 September 2026
+    Effective / last updated: 9 September 2026
   </div>
 
   <div class="intro">
-    This app is fully offline-first and ad-free. We do <b>not</b> collect, store, or sell
+    This app is fully offline-first and ad-free. We do <strong>not</strong> collect, store, or sell
     any personal data. There is no account, no tracking, and no advertising SDK.
+    We run no server of our own, so there is nowhere for your data to go.
     The sections below explain exactly what the app does.
     <div class="bn">এই অ্যাপটি সম্পূর্ণ অফলাইন ও বিজ্ঞাপনমুক্ত। আমরা আপনার কোনো ব্যক্তিগত
-    তথ্য সংগ্রহ, সংরক্ষণ বা বিক্রি করি না।</div>
+    তথ্য সংগ্রহ, সংরক্ষণ বা বিক্রি করি না। আমাদের নিজস্ব কোনো সার্ভারই নেই।</div>
   </div>
 
   <section>
@@ -57,49 +65,107 @@
     <ul>
       <li>No sign-up — no name, email, or phone number is required.</li>
       <li>No data is sent to any server of ours, because the app has no server of its own.</li>
-      <li>No ads, no analytics/tracking SDKs, and no selling of data.</li>
+      <li>No advertising, no analytics or tracking SDK, no device fingerprinting, no advertising ID.</li>
+      <li>We do not build user profiles and we sell data to no one.</li>
     </ul>
     <div class="bn">অ্যাকাউন্ট লাগে না; কোনো তথ্য আমাদের সার্ভারে যায় না (সার্ভারই নেই);
-    কোনো বিজ্ঞাপন বা ট্র্যাকিং নেই।</div>
+    কোনো বিজ্ঞাপন, অ্যানালিটিক্স বা ট্র্যাকিং নেই।</div>
   </section>
 
   <section>
-    <h2>2. Location</h2>
+    <h2>2. Permissions the app asks for, and why</h2>
+    <p style="margin:0 0 8px;font-size:14.5px;">Every permission below is optional. If you decline
+    one, only the feature that needs it stops working — the rest of the app continues normally.</p>
+    <div class="tw">
+    <table>
+      <tr><th>Permission</th><th>Why it is used</th><th>If you decline</th></tr>
+      <tr><td><code>ACCESS_COARSE / FINE_LOCATION</code></td>
+          <td>Prayer times and Qibla direction, calculated on your device.</td>
+          <td>The app uses the district/upazila you pick from a built-in list.</td></tr>
+      <tr><td><code>POST_NOTIFICATIONS</code></td>
+          <td>Prayer-time reminders and adhan alerts.</td>
+          <td>No reminders; times are still shown inside the app.</td></tr>
+      <tr><td><code>SCHEDULE_EXACT_ALARM</code></td>
+          <td>So the adhan fires at the exact minute rather than being delayed by the system.</td>
+          <td>The app falls back to inexact alarms, which may be a few minutes late.</td></tr>
+      <tr><td><code>RECEIVE_BOOT_COMPLETED</code></td>
+          <td>Re-schedules your reminders after the phone restarts.</td>
+          <td>—</td></tr>
+      <tr><td><code>FOREGROUND_SERVICE</code> (<code>mediaPlayback</code>)</td>
+          <td>Keeps Quran recitation playing when the screen is off, with lock-screen controls.</td>
+          <td>—</td></tr>
+      <tr><td><code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code></td>
+          <td>One-time download of Quran text, translations, hadith books and recitation audio; optional weather.</td>
+          <td>—</td></tr>
+      <tr><td><code>VIBRATE</code>, <code>WAKE_LOCK</code></td>
+          <td>Vibration for reminders; keeping the device awake while an adhan plays.</td>
+          <td>—</td></tr>
+      <tr><td>File picker (no permission)</td>
+          <td>Only if you choose your own adhan/tone file. The app reads just that one file you picked.</td>
+          <td>Built-in tones are used.</td></tr>
+    </table>
+    </div>
+    <div class="bn">প্রতিটি অনুমতি ঐচ্ছিক। না দিলে কেবল ওই ফিচারটিই বন্ধ থাকে, বাকি অ্যাপ আগের মতোই চলে।</div>
+  </section>
+
+  <section>
+    <h2>3. Location</h2>
     <ul>
       <li>Location is used only to calculate prayer times and the Qibla direction.</li>
-      <li>The calculation happens entirely on your device — your location is never uploaded.</li>
+      <li>The calculation happens entirely on your device — your location is never uploaded to us.</li>
+      <li>We request location only while you are using the app. There is no background location access.</li>
       <li>The app works without location permission; it then uses the district you select.</li>
     </ul>
     <div class="bn">অবস্থান শুধু নামাজের সময় ও কিবলা বের করতে, সম্পূর্ণ ফোনেই; কোথাও পাঠানো হয় না।</div>
   </section>
 
   <section>
-    <h2>3. Data stored on your device</h2>
+    <h2>4. Data stored on your device</h2>
     <ul>
-      <li>Bookmarks, prayer tracker, last-read verse, and all settings are stored only on your device.</li>
-      <li>Uninstalling the app removes all of this data.</li>
+      <li>Bookmarks, prayer tracker, last-read verse, tasbih counts, notes and all settings are stored only on your device.</li>
+      <li>Downloaded Quran text, translations, hadith books and audio are stored in the app's own private folder.</li>
+      <li>None of it is transmitted anywhere. Uninstalling the app removes all of it.</li>
+      <li>If you use Backup in the app, a file is created and it goes only where <em>you</em> send it.</li>
     </ul>
     <div class="bn">বুকমার্ক, ট্র্যাকার, সেটিংস — সব শুধু আপনার ফোনেই; অ্যাপ মুছলে মুছে যায়।</div>
   </section>
 
   <section>
-    <h2>4. When the internet is used</h2>
-    <ul>
-      <li>To download the Quran, translations, and hadith books (jsdelivr.net — an open CDN).</li>
-      <li>To download recitation audio (everyayah.com).</li>
-      <li>To download full-surah recitation and word-by-word meaning (quran.com open CDN).</li>
-      <li>Once downloaded, everything works fully offline.</li>
-    </ul>
-    <div class="bn">ইন্টারনেট শুধু কুরআন/অনুবাদ/হাদিস ও তিলাওয়াত নামানোর সময়; পরে সব অফলাইনে চলে।</div>
+    <h2>5. When the internet is used, and who receives what</h2>
+    <p style="margin:0 0 8px;font-size:14.5px;">The app connects to the services below. As with
+    visiting any website, the service you connect to can see your device's IP address and the file
+    requested — that is how the internet works. We receive nothing, because none of these are ours.
+    Every connection uses HTTPS.</p>
+    <div class="tw">
+    <table>
+      <tr><th>Service</th><th>Used for</th><th>Their privacy policy</th></tr>
+      <tr><td>jsDelivr (open CDN)</td><td>Downloading Quran text, translations and hadith books.</td>
+          <td><a href="https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net" target="_blank" rel="noopener">jsdelivr.com</a></td></tr>
+      <tr><td>everyayah.com</td><td>Downloading verse-by-verse recitation audio.</td>
+          <td><a href="https://everyayah.com/" target="_blank" rel="noopener">everyayah.com</a></td></tr>
+      <tr><td>Quran.com API (<code>api.qurancdn.com</code>)</td><td>Full-surah recitation files, verse timings and word-by-word meaning.</td>
+          <td><a href="https://quran.com/privacy" target="_blank" rel="noopener">quran.com</a></td></tr>
+      <tr><td>MET Norway</td><td>Optional weather on the home screen.</td>
+          <td><a href="https://www.met.no/en/About-us/privacy" target="_blank" rel="noopener">met.no</a></td></tr>
+      <tr><td>Open-Meteo</td><td>Optional weather (fallback).</td>
+          <td><a href="https://open-meteo.com/en/terms" target="_blank" rel="noopener">open-meteo.com</a></td></tr>
+      <tr><td>Google Play</td><td>In-app update and in-app review prompts (see section 8).</td>
+          <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com</a></td></tr>
+      <tr><td>Facebook</td><td>Only if you tap “Join our Facebook group”, which opens Facebook outside the app.</td>
+          <td><a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">facebook.com</a></td></tr>
+    </table>
+    </div>
+    <p style="margin:10px 0 0;font-size:14.5px;">Once content is downloaded, everything works fully
+    offline. No account or identifier of yours is sent to any of these services.</p>
+    <div class="bn">ইন্টারনেট শুধু কুরআন/অনুবাদ/হাদিস ও তিলাওয়াত নামানোর সময়; পরে সব অফলাইনে চলে।
+    যে সার্ভার থেকে ফাইল আসে, সে আপনার IP দেখতে পায় — যেকোনো ওয়েবসাইট খুললেই যেমন হয়।</div>
   </section>
 
   <section>
-    <h2>5. Weather</h2>
+    <h2>6. Weather (optional)</h2>
     <ul>
-      <li>The home-screen sky shows temperature and clouds using two open sources —
-          MET Norway and Open-Meteo.</li>
-      <li>Only your selected city's coordinates are sent, rounded to two decimals
-          (city-level, not your precise location).</li>
+      <li>The home-screen sky shows temperature and clouds using two open sources — MET Norway and Open-Meteo.</li>
+      <li>Only your selected city's coordinates are sent, rounded to two decimals (city-level, not your precise location).</li>
       <li>Requested at most once every 30 minutes; the last result is cached on the device.</li>
       <li>It can be turned off entirely in Settings → Weather, after which no request is made.</li>
     </ul>
@@ -108,38 +174,103 @@
   </section>
 
   <section>
-    <h2>6. Notifications</h2>
+    <h2>7. Notifications</h2>
     <ul>
-      <li>Notifications are used for prayer-time reminders.</li>
-      <li>The times are computed on your device — no internet is required.</li>
-      <li>They can be turned off anytime in Settings.</li>
+      <li>Notifications are used for prayer-time reminders only — never for marketing.</li>
+      <li>The times are computed on your device; no internet is required.</li>
+      <li>They can be turned off anytime in Settings, or per prayer.</li>
     </ul>
     <div class="bn">নামাজের রিমাইন্ডার নোটিফিকেশন; সময় ফোনেই হিসাব হয়; সেটিংস থেকে বন্ধ করা যায়।</div>
   </section>
 
   <section>
-    <h2>7. Children's privacy</h2>
+    <h2>8. Google Play services</h2>
     <ul>
-      <li>The app is suitable for all ages and collects no data from anyone, including children.</li>
+      <li><strong>In-app update:</strong> the app asks Google Play whether a newer version exists, so you can update without leaving the app.</li>
+      <li><strong>In-app review:</strong> after a few minutes of use we ask once whether you like the app. If you say yes, Google Play's own rating sheet opens. We are never told who rated or what they rated.</li>
+      <li>These use Google's official libraries. Any data handling there is governed by Google's privacy policy, not ours.</li>
     </ul>
-    <div class="bn">অ্যাপটি সব বয়সীর জন্য নিরাপদ; শিশুদের কাছ থেকেও কোনো তথ্য নেওয়া হয় না।</div>
+    <div class="bn">অ্যাপ আপডেট ও রেটিং — গুগলের নিজস্ব ব্যবস্থা; কে রেটিং দিলেন তা আমরা জানতে পারি না।</div>
   </section>
 
   <section>
-    <h2>8. Changes to this policy</h2>
+    <h2>9. Data retention and deletion</h2>
+    <ul>
+      <li>We retain nothing, because we collect nothing and operate no server or database.</li>
+      <li>Everything the app saves stays on your device for as long as the app is installed.</li>
+      <li><strong>To delete it:</strong> uninstall the app, or go to Android Settings → Apps → নামাজ শিক্ষা → Storage → Clear data. Either removes all app data permanently.</li>
+      <li>Downloaded Quran/hadith/audio files can also be removed individually inside the app (আরও → ডাউনলোড).</li>
+      <li>There is no account to delete and no request you need to send us — the delete button is on your own phone.</li>
+    </ul>
+    <div class="bn">আমরা কিছুই রাখি না। অ্যাপ আনইনস্টল করলে বা "Clear data" করলে সব মুছে যায়;
+    ডাউনলোড করা ফাইল অ্যাপের ভেতর থেকেও আলাদা করে মোছা যায়।</div>
+  </section>
+
+  <section>
+    <h2>10. Security</h2>
+    <ul>
+      <li>All network requests use HTTPS (encrypted in transit).</li>
+      <li>App data is kept in Android's app-private storage, which other apps cannot read.</li>
+      <li>We hold no user database, so there is no store of personal data that could be breached.</li>
+    </ul>
+    <div class="bn">সব সংযোগ HTTPS; অ্যাপের তথ্য ফোনের সুরক্ষিত ব্যক্তিগত ফোল্ডারে থাকে।</div>
+  </section>
+
+  <section>
+    <h2>11. No sharing, no selling</h2>
+    <ul>
+      <li>We share no personal data with anyone — no advertisers, no data brokers, no analytics firms.</li>
+      <li>We transfer no data for advertising or marketing purposes.</li>
+      <li>We would only disclose information if legally compelled — and we hold none to disclose.</li>
+    </ul>
+    <div class="bn">কারও সাথে কোনো তথ্য শেয়ার বা বিক্রি করা হয় না — আমাদের কাছে তথ্যই নেই।</div>
+  </section>
+
+  <section>
+    <h2>12. Children's privacy</h2>
+    <ul>
+      <li>The app's content is suitable for all ages, but it is not directed at children under 13.</li>
+      <li>We collect no data from anyone, including children. There are no ads and no in-app purchases.</li>
+    </ul>
+    <div class="bn">অ্যাপটি সব বয়সীর জন্য নিরাপদ; কারও কাছ থেকেই কোনো তথ্য নেওয়া হয় না।</div>
+  </section>
+
+  <section>
+    <h2>13. Religious content and its sources</h2>
+    <ul>
+      <li>Every Quran verse, hadith and quotation in the app carries its reference (surah:verse, or book and hadith number with its grading).</li>
+      <li>The full list of sources, translators, reciters and licences is published openly at
+        <a href="./credits.html">Sources &amp; Licences</a>.</li>
+      <li>If you are a rights holder and believe something should be credited differently or removed,
+        please write to us — see the contact box below. We respond and act.</li>
+    </ul>
+    <div class="bn">প্রতিটি আয়াত ও হাদিসের সূত্র অ্যাপেই দেওয়া। সব উৎস ও লাইসেন্সের পূর্ণ তালিকা
+    <a href="./credits.html">সূত্র ও লাইসেন্স</a> পাতায় খোলা রাখা আছে।</div>
+  </section>
+
+  <section>
+    <h2>14. Changes to this policy</h2>
     <ul>
       <li>If this policy changes, the updated version will be posted on this page with a new date.</li>
+      <li>Material changes will also be mentioned in the app's release notes.</li>
     </ul>
   </section>
 
   <div class="contact">
-    <b>Contact</b><br>
-    For any question about this policy, email:
+    <strong>Contact</strong><br>
+    Privacy questions, or a copyright / content concern:
     <a href="mailto:phpmy404@gmail.com">phpmy404@gmail.com</a><br>
-    Monirujjaman Monjil — Tech Easy Life
+    Monirujjaman Monjil — Tech Easy Life<br>
+    We aim to reply within 7 days. For a rights-holder request, please include the exact screen or
+    file and the right you hold; we will remove or re-credit promptly.
+    <div class="bn" style="margin-top:8px;">গোপনীয়তা বা কপিরাইট সংক্রান্ত যেকোনো প্রশ্নে ইমেইল করুন —
+    আমরা দ্রুত সাড়া দিই।</div>
   </div>
 
-  <footer>© 2026 Tech Easy Life · Namaz Shikkha, Quran &amp; Hadith · com.techeasylife.namajshikkha</footer>
+  <footer>
+    © 2026 Tech Easy Life · Namaz Shikkha, Quran &amp; Hadith · com.techeasylife.namajshikkha<br>
+    <a href="./index.html">Home</a> · <a href="./terms.html">Terms of Use</a> · <a href="./credits.html">Sources &amp; Licences</a>
+  </footer>
 </div>
 </body>
 </html>
