@@ -100,6 +100,11 @@
       <tr><td><code>VIBRATE</code>, <code>WAKE_LOCK</code></td>
           <td>Vibration for reminders; keeping the device awake while an adhan plays.</td>
           <td>—</td></tr>
+      <tr><td>Compass &amp; motion sensors (no permission needed)</td>
+          <td>The Qibla screen reads the magnetometer and accelerometer to point towards the Kaaba,
+              and applies a magnetic-declination correction. Readings are used in the moment and
+              never stored or sent anywhere.</td>
+          <td>The Qibla direction is still shown as an angle you can align by hand.</td></tr>
       <tr><td>File picker (no permission)</td>
           <td>Only if you choose your own adhan/tone file. The app reads just that one file you picked.</td>
           <td>Built-in tones are used.</td></tr>
@@ -121,17 +126,48 @@
 
   <section>
     <h2>4. Data stored on your device</h2>
+    <p style="margin:0 0 8px;font-size:14.5px;">Everything below is written to your phone's own
+    app-private storage. None of it is transmitted anywhere, and we cannot see any of it.</p>
     <ul>
-      <li>Bookmarks, prayer tracker, last-read verse, tasbih counts, notes and all settings are stored only on your device.</li>
-      <li>Downloaded Quran text, translations, hadith books and audio are stored in the app's own private folder.</li>
-      <li>None of it is transmitted anywhere. Uninstalling the app removes all of it.</li>
-      <li>If you use Backup in the app, a file is created and it goes only where <em>you</em> send it.</li>
+      <li><strong>Worship records:</strong> which prayers you ticked, missed-prayer (qaza) counts,
+        fasts, taraweeh nights and daily deeds.</li>
+      <li><strong>Reading state:</strong> bookmarks, last-read verse and hadith position.</li>
+      <li><strong>Your own writing:</strong> personal notes — duas, intentions and goals you type in.</li>
+      <li><strong>Counts and settings:</strong> tasbih totals, theme, chosen translation and reciter,
+        calculation method, reminder preferences.</li>
+      <li><strong>Downloads:</strong> Quran text, translations, hadith books and recitation audio.</li>
+      <li>Some of this reflects your religious practice. It is exactly the kind of information we
+        made sure never leaves your device — there is no server for it to go to.</li>
+      <li>Uninstalling the app removes all of it.</li>
     </ul>
     <div class="bn">বুকমার্ক, ট্র্যাকার, সেটিংস — সব শুধু আপনার ফোনেই; অ্যাপ মুছলে মুছে যায়।</div>
   </section>
 
   <section>
-    <h2>5. When the internet is used, and who receives what</h2>
+    <h2>5. Sharing, copying and backup — actions you start</h2>
+    <p style="margin:0 0 8px;font-size:14.5px;">Nothing here happens on its own. Each of these runs
+    only when you tap the button, and the data goes only where you send it — never to us.</p>
+    <ul>
+      <li><strong>Share:</strong> you can share a verse, hadith, quotation, dua or name of Allah to
+        another app (WhatsApp, Messenger, email…). Android's own share sheet decides where it goes.
+        Only the text you chose is passed on.</li>
+      <li><strong>Copy:</strong> tapping “copy” puts that text on your clipboard, as any app does.</li>
+      <li><strong>Backup:</strong> creates a single <code>.json</code> file containing your bookmarks,
+        prayer tracker, qaza counts, fasts, taraweeh, deeds, reading positions, reminder preferences
+        and app settings. It is handed to Android's share sheet — you decide whether it goes to
+        Drive, a chat, or your own storage. We never receive it.
+        <br><em>Note: your personal notes are not included in the backup file.</em></li>
+      <li><strong>Restore:</strong> reads a backup file you pick. If the file is not recognised,
+        nothing is changed at all — a half-restore that damages your data is not allowed.</li>
+      <li><strong>External links:</strong> the Facebook group link and the Play Store rating page open
+        outside the app, in Facebook or Play. From that point their own policies apply.</li>
+    </ul>
+    <div class="bn">শেয়ার, কপি ও ব্যাকআপ — সবই আপনি চাপ দিলে তবেই হয়, আর যেখানে আপনি পাঠান
+    সেখানেই যায়; আমাদের কাছে কখনো আসে না। ব্যাকআপ ফাইলে ব্যক্তিগত নোট থাকে না।</div>
+  </section>
+
+  <section>
+    <h2>6. When the internet is used, and who receives what</h2>
     <p style="margin:0 0 8px;font-size:14.5px;">The app connects to the services below. As with
     visiting any website, the service you connect to can see your device's IP address and the file
     requested — that is how the internet works. We receive nothing, because none of these are ours.
@@ -149,7 +185,7 @@
           <td><a href="https://www.met.no/en/About-us/privacy" target="_blank" rel="noopener">met.no</a></td></tr>
       <tr><td>Open-Meteo</td><td>Optional weather (fallback).</td>
           <td><a href="https://open-meteo.com/en/terms" target="_blank" rel="noopener">open-meteo.com</a></td></tr>
-      <tr><td>Google Play</td><td>In-app update and in-app review prompts (see section 8).</td>
+      <tr><td>Google Play</td><td>In-app update and in-app review prompts (see section 9).</td>
           <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com</a></td></tr>
       <tr><td>Facebook</td><td>Only if you tap “Join our Facebook group”, which opens Facebook outside the app.</td>
           <td><a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">facebook.com</a></td></tr>
@@ -162,7 +198,7 @@
   </section>
 
   <section>
-    <h2>6. Weather (optional)</h2>
+    <h2>7. Weather (optional)</h2>
     <ul>
       <li>The home-screen sky shows temperature and clouds using two open sources — MET Norway and Open-Meteo.</li>
       <li>Only your selected city's coordinates are sent, rounded to two decimals (city-level, not your precise location).</li>
@@ -174,7 +210,7 @@
   </section>
 
   <section>
-    <h2>7. Notifications</h2>
+    <h2>8. Notifications</h2>
     <ul>
       <li>Notifications are used for prayer-time reminders only — never for marketing.</li>
       <li>The times are computed on your device; no internet is required.</li>
@@ -184,7 +220,7 @@
   </section>
 
   <section>
-    <h2>8. Google Play services</h2>
+    <h2>9. Google Play services</h2>
     <ul>
       <li><strong>In-app update:</strong> the app asks Google Play whether a newer version exists, so you can update without leaving the app.</li>
       <li><strong>In-app review:</strong> after a few minutes of use we ask once whether you like the app. If you say yes, Google Play's own rating sheet opens. We are never told who rated or what they rated.</li>
@@ -194,7 +230,7 @@
   </section>
 
   <section>
-    <h2>9. Data retention and deletion</h2>
+    <h2>10. Data retention and deletion</h2>
     <ul>
       <li>We retain nothing, because we collect nothing and operate no server or database.</li>
       <li>Everything the app saves stays on your device for as long as the app is installed.</li>
@@ -207,7 +243,7 @@
   </section>
 
   <section>
-    <h2>10. Security</h2>
+    <h2>11. Security</h2>
     <ul>
       <li>All network requests use HTTPS (encrypted in transit).</li>
       <li>App data is kept in Android's app-private storage, which other apps cannot read.</li>
@@ -217,7 +253,7 @@
   </section>
 
   <section>
-    <h2>11. No sharing, no selling</h2>
+    <h2>12. No sharing, no selling</h2>
     <ul>
       <li>We share no personal data with anyone — no advertisers, no data brokers, no analytics firms.</li>
       <li>We transfer no data for advertising or marketing purposes.</li>
@@ -227,7 +263,7 @@
   </section>
 
   <section>
-    <h2>12. Children's privacy</h2>
+    <h2>13. Children's privacy</h2>
     <ul>
       <li>The app's content is suitable for all ages, but it is not directed at children under 13.</li>
       <li>We collect no data from anyone, including children. There are no ads and no in-app purchases.</li>
@@ -236,7 +272,7 @@
   </section>
 
   <section>
-    <h2>13. Religious content and its sources</h2>
+    <h2>14. Religious content and its sources</h2>
     <ul>
       <li>Every Quran verse, hadith and quotation in the app carries its reference (surah:verse, or book and hadith number with its grading).</li>
       <li>The full list of sources, translators, reciters and licences is published openly at
@@ -249,7 +285,26 @@
   </section>
 
   <section>
-    <h2>14. Changes to this policy</h2>
+    <h2>15. What this app never does</h2>
+    <ul>
+      <li>It does not access your camera, microphone, contacts, calendar, call log, SMS, photos or files
+        — the only exception is the single audio file you pick yourself as a custom adhan.</li>
+      <li>It does not scan the apps installed on your phone. Android requires apps to declare which
+        other apps they may open; we declare exactly three — Facebook, Facebook Lite and Google Play —
+        and nothing else is looked at.</li>
+      <li>It sends us no crash reports, no diagnostics and no usage statistics. There is no analytics
+        of any kind. (Google Play may collect its own crash data for any Android app; that is Google's,
+        governed by their policy, and we cannot identify anyone from it.)</li>
+      <li>It shows no advertising, contains no ad SDK and no advertising identifier.</li>
+      <li>It has no account, no login and no in-app purchase.</li>
+    </ul>
+    <div class="bn">ক্যামেরা, মাইক্রোফোন, কন্টাক্ট, ক্যালেন্ডার, এসএমএস বা ছবিতে অ্যাপের কোনো
+    প্রবেশ নেই; ফোনে কী কী অ্যাপ আছে তা-ও দেখা হয় না; কোনো ক্র্যাশ রিপোর্ট, ডায়াগনস্টিক বা
+    ব্যবহারের পরিসংখ্যান আমাদের কাছে আসে না।</div>
+  </section>
+
+  <section>
+    <h2>16. Changes to this policy</h2>
     <ul>
       <li>If this policy changes, the updated version will be posted on this page with a new date.</li>
       <li>Material changes will also be mentioned in the app's release notes.</li>
