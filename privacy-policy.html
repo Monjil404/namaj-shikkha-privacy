@@ -117,11 +117,12 @@
     <h2>3. Location</h2>
     <ul>
       <li>Location is used only to calculate prayer times and the Qibla direction.</li>
-      <li>The calculation happens entirely on your device — your location is never uploaded to us.</li>
+      <li>The calculation happens entirely on your device — your location is never uploaded to us, and we operate no server that could receive it.</li>
+      <li>One exception: if the optional weather display is on, a coarse coordinate is sent to the weather sources. See section 7.</li>
       <li>We request location only while you are using the app. There is no background location access.</li>
       <li>The app works without location permission; it then uses the district you select.</li>
     </ul>
-    <div class="bn">অবস্থান শুধু নামাজের সময় ও কিবলা বের করতে, সম্পূর্ণ ফোনেই; কোথাও পাঠানো হয় না।</div>
+    <div class="bn">অবস্থান শুধু নামাজের সময় ও কিবলা বের করতে, হিসাব সম্পূর্ণ ফোনেই। একটিই ব্যতিক্রম — আবহাওয়া চালু থাকলে মোটা দাগের স্থানাঙ্ক আবহাওয়ার উৎসে যায় (৭ নং অংশ)।</div>
   </section>
 
   <section>
@@ -201,11 +202,11 @@
     <h2>7. Weather (optional)</h2>
     <ul>
       <li>The home-screen sky shows temperature and clouds using two open sources — MET Norway and Open-Meteo.</li>
-      <li>Only your selected city's coordinates are sent, rounded to two decimals (city-level, not your precise location).</li>
+      <li>Only a latitude/longitude is sent, rounded to one decimal — a cell of roughly 11 km. If GPS is on, that coordinate is derived from your own position, but it is far too coarse to identify you. No name, ID or device identifier accompanies it.</li>
       <li>Requested at most once every 30 minutes; the last result is cached on the device.</li>
       <li>It can be turned off entirely in Settings → Weather, after which no request is made.</li>
     </ul>
-    <div class="bn">আবহাওয়া MET Norway ও Open-Meteo থেকে; শুধু শহরের স্থানাঙ্ক (২ দশমিক) যায়;
+    <div class="bn">আবহাওয়া MET Norway ও Open-Meteo থেকে; কেবল স্থানাঙ্ক যায়, এক দশমিকে গোল করা (প্রায় ১১ কিমির ঘর); নাম বা পরিচয় কিছুই যায় না;
     সেটিংস → আবহাওয়া বন্ধ করা যায়।</div>
   </section>
 
@@ -255,11 +256,12 @@
   <section>
     <h2>12. No sharing, no selling</h2>
     <ul>
-      <li>We share no personal data with anyone — no advertisers, no data brokers, no analytics firms.</li>
+      <li>No advertisers, no data brokers, no analytics firms receive anything. The app contains no such SDK.</li>
+      <li>The only user data that leaves the device is the coarse weather coordinate described in section 7, sent to MET Norway and Open-Meteo so they can return a forecast. Google Play declares this as <em>Approximate location — shared, for app functionality</em>.</li>
       <li>We transfer no data for advertising or marketing purposes.</li>
       <li>We would only disclose information if legally compelled — and we hold none to disclose.</li>
     </ul>
-    <div class="bn">কারও সাথে কোনো তথ্য শেয়ার বা বিক্রি করা হয় না — আমাদের কাছে তথ্যই নেই।</div>
+    <div class="bn">বিজ্ঞাপনদাতা, ডেটা ব্রোকার বা অ্যানালিটিক্স কোম্পানি — কারও কাছে কিছুই যায় না, বিক্রি তো নয়ই। ফোনের বাইরে যায় কেবল ৭ নং অংশে বলা মোটা দাগের আবহাওয়া-স্থানাঙ্ক।</div>
   </section>
 
   <section>
