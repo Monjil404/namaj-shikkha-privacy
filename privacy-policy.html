@@ -48,25 +48,28 @@
   <div class="meta">
     App: Namaz Shikkha, Quran &amp; Hadith (com.techeasylife.namajshikkha)<br>
     Developer: Monirujjaman Monjil — Tech Easy Life<br>
-    Effective / last updated: 9 September 2026
+    Effective / last updated: 15 September 2026
   </div>
 
   <div class="intro">
-    This app is fully offline-first and ad-free. We do <strong>not</strong> collect, store, or sell
-    any personal data. There is no account, no tracking, and no advertising SDK.
-    We run no server of our own, so there is nowhere for your data to go.
+    This app is offline-first and ad-free. It does not ask for your name, email or phone number,
+    has no account, no tracking and no advertising SDK, and we run no server of our own.
+    The <strong>only</strong> data that leaves your phone is an approximate location (about 11 km)
+    sent to weather services when the optional weather display is on — see section 7.
     The sections below explain exactly what the app does.
-    <div class="bn">এই অ্যাপটি সম্পূর্ণ অফলাইন ও বিজ্ঞাপনমুক্ত। আমরা আপনার কোনো ব্যক্তিগত
-    তথ্য সংগ্রহ, সংরক্ষণ বা বিক্রি করি না। আমাদের নিজস্ব কোনো সার্ভারই নেই।</div>
+    <div class="bn">অ্যাপটি অফলাইন-ফার্স্ট ও বিজ্ঞাপনমুক্ত; নাম, ইমেইল বা ফোন নম্বর লাগে না, আমাদের
+    নিজস্ব কোনো সার্ভারই নেই। একমাত্র ব্যতিক্রম: আবহাওয়া চালু থাকলে আনুমানিক অবস্থান (প্রায় ১১ কিমি)
+    আবহাওয়া-সেবায় যায় — ৭ নম্বর অংশ দেখুন।</div>
   </div>
 
   <section>
-    <h2>1. We do not collect personal data</h2>
+    <h2>1. What we do and don't collect</h2>
     <ul>
       <li>No sign-up — no name, email, or phone number is required.</li>
       <li>No data is sent to any server of ours, because the app has no server of its own.</li>
       <li>No advertising, no analytics or tracking SDK, no device fingerprinting, no advertising ID.</li>
       <li>We do not build user profiles and we sell data to no one.</li>
+      <li>The one exception is approximate location for the optional weather display (section 7). In Google Play's Data safety form this is declared as “Approximate location — collected and shared, optional, for app functionality”.</li>
     </ul>
     <div class="bn">অ্যাকাউন্ট লাগে না; কোনো তথ্য আমাদের সার্ভারে যায় না (সার্ভারই নেই);
     কোনো বিজ্ঞাপন, অ্যানালিটিক্স বা ট্র্যাকিং নেই।</div>
@@ -106,7 +109,7 @@
               never stored or sent anywhere.</td>
           <td>The Qibla direction is still shown as an angle you can align by hand.</td></tr>
       <tr><td>File picker (no permission)</td>
-          <td>Only if you choose your own adhan/tone file. The app reads just that one file you picked.</td>
+          <td>Only when you pick a file yourself: your own adhan/tone file, or a backup file to restore. The app reads just the file you picked.</td>
           <td>Built-in tones are used.</td></tr>
     </table>
     </div>
@@ -205,7 +208,7 @@
     <ul>
       <li>The home-screen sky shows temperature and clouds using two open sources — MET Norway and Open-Meteo.</li>
       <li>Only a latitude/longitude is sent, rounded to one decimal — a cell of roughly 11 km. If GPS is on, that coordinate is derived from your own position, but it is far too coarse to identify you. No name, ID or device identifier accompanies it.</li>
-      <li>Requested at most once every 30 minutes; the last result is cached on the device.</li>
+      <li>Requested at most once every 15 minutes while the app is open; the last result is cached on the device.</li>
       <li>It can be turned off entirely in Settings → Weather, after which no request is made.</li>
     </ul>
     <div class="bn">আবহাওয়া MET Norway ও Open-Meteo থেকে; কেবল স্থানাঙ্ক যায়, এক দশমিকে গোল করা (প্রায় ১১ কিমির ঘর); নাম বা পরিচয় কিছুই যায় না;
@@ -235,7 +238,7 @@
   <section>
     <h2>10. Data retention and deletion</h2>
     <ul>
-      <li>We retain nothing, because we collect nothing and operate no server or database.</li>
+      <li>We retain nothing ourselves, because we operate no server or database. The weather services process the approximate coordinate they receive under their own terms.</li>
       <li>Everything the app saves stays on your device for as long as the app is installed.</li>
       <li><strong>To delete it:</strong> uninstall the app, or go to Android Settings → Apps → “নামাজ শিক্ষা” (Namaz Shikkha) → Storage → Clear data. Either removes all app data permanently.</li>
       <li>Downloaded translation and audio files can also be removed individually inside the app (More → Downloads · আরও → ডাউনলোড).</li>
@@ -270,7 +273,7 @@
     <h2>13. Children's privacy</h2>
     <ul>
       <li>The app's content is suitable for all ages, but it is not directed at children under 13.</li>
-      <li>We collect no data from anyone, including children. There are no ads and no in-app purchases.</li>
+      <li>We ask no one — including children — for personal information. The only data that leaves the device is the approximate weather location described in section 7. There are no ads and no in-app purchases.</li>
     </ul>
     <div class="bn">অ্যাপটি সব বয়সীর জন্য নিরাপদ; কারও কাছ থেকেই কোনো তথ্য নেওয়া হয় না।</div>
   </section>
@@ -292,7 +295,7 @@
     <h2>15. What this app never does</h2>
     <ul>
       <li>It does not access your camera, microphone, contacts, calendar, call log, SMS, photos or files
-        — the only exception is the single audio file you pick yourself as a custom adhan.</li>
+        — the only exceptions are files you pick yourself: a custom adhan tone or a backup file to restore.</li>
       <li>It does not scan the apps installed on your phone. Android requires apps to declare which
         other apps they may open; we declare exactly three — Facebook, Facebook Lite and Google Play —
         and nothing else is looked at.</li>
