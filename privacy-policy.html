@@ -48,31 +48,34 @@
   <div class="meta">
     App: Namaz Shikkha, Quran &amp; Hadith (com.techeasylife.namajshikkha)<br>
     Developer: Monirujjaman Monjil — Tech Easy Life<br>
-    Effective / last updated: 15 September 2026
+    Effective / last updated: 16 September 2026
   </div>
 
   <div class="intro">
     This app is offline-first and ad-free. It does not ask for your name, email or phone number,
-    has no account, no tracking and no advertising SDK, and we run no server of our own.
-    The <strong>only</strong> data that leaves your phone is an approximate location (about 11 km)
-    sent to weather services when the optional weather display is on — see section 7.
+    has no account, no advertising SDK and does not use the advertising ID.
+    Your worship records, notes, bookmarks and settings never leave your phone.
+    What does leave the phone: anonymous usage statistics and a notification token handled by
+    Google Firebase (section 8a), an approximate location for the optional weather display
+    (section 7), and a periodic check of our settings endpoint (section 6).
     The sections below explain exactly what the app does.
-    <div class="bn">অ্যাপটি অফলাইন-ফার্স্ট ও বিজ্ঞাপনমুক্ত; নাম, ইমেইল বা ফোন নম্বর লাগে না, আমাদের
-    নিজস্ব কোনো সার্ভারই নেই। একমাত্র ব্যতিক্রম: আবহাওয়া চালু থাকলে আনুমানিক অবস্থান (প্রায় ১১ কিমি)
-    আবহাওয়া-সেবায় যায় — ৭ নম্বর অংশ দেখুন।</div>
+    <div class="bn">অ্যাপটি অফলাইন-ফার্স্ট ও বিজ্ঞাপনমুক্ত; নাম, ইমেইল বা ফোন নম্বর লাগে না। ইবাদতের হিসাব,
+    নোট, বুকমার্ক ও সেটিংস ফোনেই থাকে। ফোনের বাইরে যায়: নাম-পরিচয়হীন ব্যবহারের পরিসংখ্যান ও
+    নোটিফিকেশন-টোকেন (Firebase, ৮ক), আবহাওয়া চালু থাকলে আনুমানিক অবস্থান (৭), আর সেটিংসের খোঁজ (৬)।</div>
   </div>
 
   <section>
     <h2>1. What we do and don't collect</h2>
     <ul>
       <li>No sign-up — no name, email, or phone number is required.</li>
-      <li>No data is sent to any server of ours, because the app has no server of its own.</li>
-      <li>No advertising, no analytics or tracking SDK, no device fingerprinting, no advertising ID.</li>
-      <li>We do not build user profiles and we sell data to no one.</li>
-      <li>The one exception is approximate location for the optional weather display (section 7). In Google Play's Data safety form this is declared as “Approximate location — collected and shared, optional, for app functionality”.</li>
+      <li>Your worship records, notes, bookmarks, reading positions and settings are never sent to any server.</li>
+      <li>No advertising, no advertising ID, no device fingerprinting.</li>
+      <li>We do not build individual user profiles and we sell data to no one.</li>
+      <li>From version 1.0.1 the app uses Google Firebase for anonymous usage statistics and announcements (section 8a).</li>
+      <li>In Google Play's Data safety form we declare: <em>Approximate location</em> (collected; shared with weather services; for app functionality and analytics), <em>App interactions</em> (collected, for analytics) and <em>Device or other IDs</em> (collected, for analytics and developer communications).</li>
     </ul>
-    <div class="bn">অ্যাকাউন্ট লাগে না; কোনো তথ্য আমাদের সার্ভারে যায় না (সার্ভারই নেই);
-    কোনো বিজ্ঞাপন, অ্যানালিটিক্স বা ট্র্যাকিং নেই।</div>
+    <div class="bn">অ্যাকাউন্ট লাগে না; ইবাদতের হিসাব, নোট ও সেটিংস কোনো সার্ভারে যায় না;
+    বিজ্ঞাপন বা বিজ্ঞাপন-আইডি নেই। সংস্করণ ১.০.১ থেকে ব্যবহারের পরিসংখ্যান ও ঘোষণার জন্য Firebase ব্যবহৃত হয়।</div>
   </section>
 
   <section>
@@ -120,12 +123,13 @@
     <h2>3. Location</h2>
     <ul>
       <li>Location is used only to calculate prayer times and the Qibla direction.</li>
-      <li>The calculation happens entirely on your device — your location is never uploaded to us, and we operate no server that could receive it.</li>
-      <li>One exception: if the optional weather display is on, a coarse coordinate is sent to the weather sources. See section 7.</li>
+      <li>The calculation happens entirely on your device — your GPS position is never uploaded to us.</li>
+      <li>If the optional weather display is on, a coarse coordinate is sent to the weather sources (section 7).</li>
+      <li>For statistics, the district/area you selected in the app is sent to Firebase, and Google derives a coarse country/city-level location from the IP address (section 8a). GPS coordinates are never sent to Firebase.</li>
       <li>We request location only while you are using the app. There is no background location access.</li>
       <li>The app works without location permission; it then uses the district you select.</li>
     </ul>
-    <div class="bn">অবস্থান শুধু নামাজের সময় ও কিবলা বের করতে, হিসাব সম্পূর্ণ ফোনেই। একটিই ব্যতিক্রম — আবহাওয়া চালু থাকলে মোটা দাগের স্থানাঙ্ক আবহাওয়ার উৎসে যায় (৭ নং অংশ)।</div>
+    <div class="bn">অবস্থান শুধু নামাজের সময় ও কিবলা বের করতে, হিসাব সম্পূর্ণ ফোনেই। আবহাওয়া চালু থাকলে মোটা দাগের স্থানাঙ্ক আবহাওয়ার উৎসে যায় (৭); পরিসংখ্যানের জন্য বেছে নেওয়া জেলা Firebase-এ যায় (৮ক)। GPS-এর স্থানাঙ্ক কখনো নয়।</div>
   </section>
 
   <section>
@@ -141,7 +145,7 @@
         calculation method, reminder preferences.</li>
       <li><strong>Downloads:</strong> Quran translations (with footnotes, where the translation has them) and recitation audio.</li>
       <li>Some of this reflects your religious practice. It is exactly the kind of information we
-        made sure never leaves your device — there is no server for it to go to.</li>
+        made sure never leaves your device — it is not included in statistics and is sent nowhere.</li>
       <li>Uninstalling the app removes all of it.</li>
     </ul>
     <div class="bn">বুকমার্ক, ট্র্যাকার, সেটিংস — সব শুধু আপনার ফোনেই; অ্যাপ মুছলে মুছে যায়।</div>
@@ -174,8 +178,7 @@
     <h2>6. When the internet is used, and who receives what</h2>
     <p style="margin:0 0 8px;font-size:14.5px;">The app connects to the services below. As with
     visiting any website, the service you connect to can see your device's IP address and the file
-    requested — that is how the internet works. We receive nothing, because none of these are ours.
-    Every connection uses HTTPS.</p>
+    requested — that is how the internet works. Every connection uses HTTPS.</p>
     <div class="tw">
     <table>
       <tr><th>Service</th><th>Used for</th><th>Their privacy policy</th></tr>
@@ -191,6 +194,10 @@
           <td><a href="https://www.met.no/en/About-us/privacy" target="_blank" rel="noopener">met.no</a></td></tr>
       <tr><td>Open-Meteo</td><td>Optional weather (fallback).</td>
           <td><a href="https://open-meteo.com/en/terms" target="_blank" rel="noopener">open-meteo.com</a></td></tr>
+      <tr><td>Google Firebase (Analytics &amp; Cloud Messaging)</td><td>Anonymous usage statistics and delivering announcements (section 8a). From version 1.0.1.</td>
+          <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com</a></td></tr>
+      <tr><td>Cloudflare Workers (<code>namaj-config.duetrackbd.workers.dev</code>)</td><td>Our settings endpoint: the app checks it at most once every 12 hours for urgent corrections and whether an old version must be updated. Nothing about you is sent.</td>
+          <td><a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">cloudflare.com</a></td></tr>
       <tr><td>Google Play</td><td>In-app update and in-app review prompts (see section 9).</td>
           <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com</a></td></tr>
       <tr><td>Facebook</td><td>Only if you tap “Join our Facebook group”, which opens Facebook outside the app.</td>
@@ -198,7 +205,7 @@
     </table>
     </div>
     <p style="margin:10px 0 0;font-size:14.5px;">Once content is downloaded, everything works fully
-    offline. No account or identifier of yours is sent to any of these services.</p>
+    offline. Apart from Firebase (section 8a), no identifier of yours is sent to any of these services.</p>
     <div class="bn">ইন্টারনেট শুধু অনুবাদ ও তিলাওয়াত নামানোর সময় (আর আবহাওয়া চালু থাকলে); পরে সব অফলাইনে চলে।
     যে সার্ভার থেকে ফাইল আসে, সে আপনার IP দেখতে পায় — যেকোনো ওয়েবসাইট খুললেই যেমন হয়।</div>
   </section>
@@ -218,11 +225,27 @@
   <section>
     <h2>8. Notifications</h2>
     <ul>
-      <li>Notifications are used for prayer-time reminders only — never for marketing.</li>
-      <li>The times are computed on your device; no internet is required.</li>
-      <li>They can be turned off anytime in Settings, or per prayer.</li>
+      <li>Prayer-time reminders are computed on your device; no internet is required.</li>
+      <li>From version 1.0.1 we may occasionally send an announcement — for example a Ramadan date or a correction — on a separate “ঘোষণা ও খবর” channel, which you can turn off on its own in Android's notification settings.</li>
+      <li>Notifications are never used for advertising or product promotion.</li>
+      <li>Reminders can be turned off anytime in Settings, or per prayer.</li>
     </ul>
-    <div class="bn">নামাজের রিমাইন্ডার নোটিফিকেশন; সময় ফোনেই হিসাব হয়; সেটিংস থেকে বন্ধ করা যায়।</div>
+    <div class="bn">নামাজের রিমাইন্ডার ফোনেই হিসাব হয়। মাঝে মাঝে জরুরি ঘোষণা আলাদা “ঘোষণা ও খবর” চ্যানেলে যেতে পারে, যা আলাদাভাবে বন্ধ করা যায়। বিজ্ঞাপন কখনো নয়।</div>
+  </section>
+
+  <section>
+    <h2>8a. Usage statistics and announcements (Google Firebase)</h2>
+    <p style="margin:0 0 8px;font-size:14.5px;">From version 1.0.1 the app includes Google Analytics for
+    Firebase and Firebase Cloud Messaging. Google processes this data as our service provider.</p>
+    <ul>
+      <li><strong>What is collected:</strong> app-lifecycle events such as app opens, screens viewed and session length; notification received/opened events; app version, Android version and device model; a random per-installation identifier (the Firebase installation / app-instance ID); a coarse location Google derives from the IP address; and the district/area you selected in the app.</li>
+      <li><strong>Notification token:</strong> Cloud Messaging creates a token so announcements can reach the phone. All installations are subscribed to one shared topic, so we never keep a list of tokens.</li>
+      <li><strong>Why:</strong> to know how many people use the app, which features and districts need the most attention, and to send important announcements.</li>
+      <li><strong>What we see:</strong> aggregated numbers only (for example active users or how many phones opened an announcement). We cannot see your name, and nothing tells us what you read or how you pray.</li>
+      <li><strong>Never sent:</strong> worship records, notes, bookmarks, Quran reading positions, GPS coordinates, contacts, or the advertising ID. Advertising-ID collection and ad-personalisation signals are switched off in the app.</li>
+      <li><strong>Retention:</strong> Google deletes event-level data after the retention period set in Google Analytics (at most 14 months).</li>
+    </ul>
+    <div class="bn">সংস্করণ ১.০.১ থেকে Firebase Analytics ও Cloud Messaging: অ্যাপ খোলা, কোন পর্দা দেখা হলো, নোটিফিকেশন পৌঁছানো/খোলা, অ্যাপ ও ফোনের সংস্করণ, একটি এলোমেলো ইনস্টলেশন-আইডি, আইপি থেকে আনুমানিক অবস্থান, আর আপনার বেছে নেওয়া জেলা। আমরা দেখি কেবল সামগ্রিক সংখ্যা। ইবাদতের হিসাব, নোট, GPS বা বিজ্ঞাপন-আইডি কখনো যায় না।</div>
   </section>
 
   <section>
@@ -238,13 +261,14 @@
   <section>
     <h2>10. Data retention and deletion</h2>
     <ul>
-      <li>We retain nothing ourselves, because we operate no server or database. The weather services process the approximate coordinate they receive under their own terms.</li>
+      <li>We keep no database of users. Our settings endpoint stores only app settings (such as the minimum supported version), never data about users; Cloudflare may keep short-lived technical request logs, as any web host does.</li>
+      <li>Usage statistics are retained by Google Firebase as described in section 8a. The weather services process the approximate coordinate they receive under their own terms.</li>
       <li>Everything the app saves stays on your device for as long as the app is installed.</li>
       <li><strong>To delete it:</strong> uninstall the app, or go to Android Settings → Apps → “নামাজ শিক্ষা” (Namaz Shikkha) → Storage → Clear data. Either removes all app data permanently.</li>
       <li>Downloaded translation and audio files can also be removed individually inside the app (More → Downloads · আরও → ডাউনলোড).</li>
       <li>There is no account to delete and no request you need to send us — the delete button is on your own phone.</li>
     </ul>
-    <div class="bn">আমরা কিছুই রাখি না। অ্যাপ আনইনস্টল করলে বা "Clear data" করলে সব মুছে যায়;
+    <div class="bn">আমাদের কোনো ব্যবহারকারী-ডেটাবেজ নেই; পরিসংখ্যান Firebase-এ নির্ধারিত মেয়াদ পর্যন্ত থাকে। অ্যাপ আনইনস্টল করলে বা "Clear data" করলে সব মুছে যায়;
     ডাউনলোড করা ফাইল অ্যাপের ভেতর থেকেও আলাদা করে মোছা যায়।</div>
   </section>
 
@@ -253,7 +277,7 @@
     <ul>
       <li>All network requests use HTTPS (encrypted in transit).</li>
       <li>App data is kept in Android's app-private storage, which other apps cannot read.</li>
-      <li>We hold no user database, so there is no store of personal data that could be breached.</li>
+      <li>We hold no user database of our own, so there is no store of personal data on our side that could be breached.</li>
     </ul>
     <div class="bn">সব সংযোগ HTTPS; অ্যাপের তথ্য ফোনের সুরক্ষিত ব্যক্তিগত ফোল্ডারে থাকে।</div>
   </section>
@@ -261,19 +285,20 @@
   <section>
     <h2>12. No sharing, no selling</h2>
     <ul>
-      <li>No advertisers, no data brokers, no analytics firms receive anything. The app contains no such SDK.</li>
-      <li>The only user data that leaves the device is the coarse weather coordinate described in section 7, sent to MET Norway and Open-Meteo so they can return a forecast. Google Play declares this as <em>Approximate location — shared, for app functionality</em>.</li>
+      <li>No advertisers or data brokers receive anything. The app contains no advertising SDK.</li>
+      <li>Google Firebase processes usage statistics on our behalf as a service provider (section 8a); this is not sharing for advertising.</li>
+      <li>The only data shared with another company for its own processing is the coarse weather coordinate described in section 7, sent to MET Norway and Open-Meteo so they can return a forecast.</li>
       <li>We transfer no data for advertising or marketing purposes.</li>
       <li>We would only disclose information if legally compelled — and we hold none to disclose.</li>
     </ul>
-    <div class="bn">বিজ্ঞাপনদাতা, ডেটা ব্রোকার বা অ্যানালিটিক্স কোম্পানি — কারও কাছে কিছুই যায় না, বিক্রি তো নয়ই। ফোনের বাইরে যায় কেবল ৭ নং অংশে বলা মোটা দাগের আবহাওয়া-স্থানাঙ্ক।</div>
+    <div class="bn">বিজ্ঞাপনদাতা বা ডেটা ব্রোকারের কাছে কিছুই যায় না, বিক্রি তো নয়ই। Firebase আমাদের সেবাদাতা হিসেবে পরিসংখ্যান প্রক্রিয়া করে; অন্য প্রতিষ্ঠানের সাথে শেয়ার কেবল আবহাওয়ার মোটা দাগের স্থানাঙ্ক।</div>
   </section>
 
   <section>
     <h2>13. Children's privacy</h2>
     <ul>
       <li>The app's content is suitable for all ages, but it is not directed at children under 13.</li>
-      <li>We ask no one — including children — for personal information. The only data that leaves the device is the approximate weather location described in section 7. There are no ads and no in-app purchases.</li>
+      <li>We ask no one — including children — for personal information. Data that leaves the device is limited to what sections 6, 7 and 8a describe. There are no ads and no in-app purchases.</li>
     </ul>
     <div class="bn">অ্যাপটি সব বয়সীর জন্য নিরাপদ; কারও কাছ থেকেই কোনো তথ্য নেওয়া হয় না।</div>
   </section>
@@ -299,15 +324,15 @@
       <li>It does not scan the apps installed on your phone. Android requires apps to declare which
         other apps they may open; we declare exactly three — Facebook, Facebook Lite and Google Play —
         and nothing else is looked at.</li>
-      <li>It sends us no crash reports, no diagnostics and no usage statistics. There is no analytics
-        of any kind. (Google Play may collect its own crash data for any Android app; that is Google's,
-        governed by their policy, and we cannot identify anyone from it.)</li>
+      <li>It sends us no crash reports or diagnostics. Usage statistics reach us only as aggregated
+        numbers through Firebase (section 8a). (Google Play may collect its own crash data for any Android
+        app; that is Google's, governed by their policy.)</li>
       <li>It shows no advertising, contains no ad SDK and no advertising identifier.</li>
       <li>It has no account, no login and no in-app purchase.</li>
     </ul>
     <div class="bn">ক্যামেরা, মাইক্রোফোন, কন্টাক্ট, ক্যালেন্ডার, এসএমএস বা ছবিতে অ্যাপের কোনো
-    প্রবেশ নেই; ফোনে কী কী অ্যাপ আছে তা-ও দেখা হয় না; কোনো ক্র্যাশ রিপোর্ট, ডায়াগনস্টিক বা
-    ব্যবহারের পরিসংখ্যান আমাদের কাছে আসে না।</div>
+    প্রবেশ নেই; ফোনে কী কী অ্যাপ আছে তা-ও দেখা হয় না; কোনো ক্র্যাশ রিপোর্ট বা ডায়াগনস্টিক আমাদের কাছে আসে না;
+    ব্যবহারের পরিসংখ্যান আসে কেবল সামগ্রিক সংখ্যা হিসেবে।</div>
   </section>
 
   <section>
