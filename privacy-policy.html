@@ -48,7 +48,7 @@
   <div class="meta">
     App: Namaz Shikkha, Quran &amp; Hadith (com.techeasylife.namajshikkha)<br>
     Developer: Monirujjaman Monjil — Tech Easy Life<br>
-    Effective / last updated: 16 September 2026
+    Effective / last updated: 28 September 2026
   </div>
 
   <div class="intro">
@@ -93,7 +93,7 @@
           <td>No reminders; times are still shown inside the app.</td></tr>
       <tr><td><code>SCHEDULE_EXACT_ALARM</code></td>
           <td>So the adhan fires at the exact minute rather than being delayed by the system.</td>
-          <td>The app falls back to inexact alarms, which may be a few minutes late.</td></tr>
+          <td>The app falls back to inexact alarms, which Android may delay by up to about an hour. The app shows a warning and a guide to fix it.</td></tr>
       <tr><td><code>RECEIVE_BOOT_COMPLETED</code></td>
           <td>Re-schedules your reminders after the phone restarts.</td>
           <td>—</td></tr>
@@ -144,11 +144,13 @@
       <li><strong>Counts and settings:</strong> tasbih totals, theme, chosen translation and reciter,
         calculation method, reminder preferences.</li>
       <li><strong>Downloads:</strong> Quran translations (with footnotes, where the translation has them) and recitation audio.</li>
+      <li><strong>Location for prayer times:</strong> the district or city you pick; if you use “current location”, the last GPS position, so your prayer times stay correct after a restart without asking for location again. It is kept only on the phone.</li>
+      <li><strong>Home-screen widgets:</strong> if you add one, the prayer times for the next 30 days are stored for the widget, so it works without opening the app.</li>
       <li>Some of this reflects your religious practice. It is exactly the kind of information we
         made sure never leaves your device — it is not included in statistics and is sent nowhere.</li>
       <li>Uninstalling the app removes all of it.</li>
     </ul>
-    <div class="bn">বুকমার্ক, ট্র্যাকার, সেটিংস — সব শুধু আপনার ফোনেই; অ্যাপ মুছলে মুছে যায়।</div>
+    <div class="bn">বুকমার্ক, ট্র্যাকার, সেটিংস, বেছে নেওয়া জায়গা (GPS দিলে শেষ অবস্থান) আর উইজেটের সময় — সব শুধু আপনার ফোনেই; অ্যাপ মুছলে মুছে যায়।</div>
   </section>
 
   <section>
@@ -252,10 +254,11 @@
     <h2>9. Google Play services</h2>
     <ul>
       <li><strong>In-app update:</strong> the app asks Google Play whether a newer version exists, so you can update without leaving the app.</li>
-      <li><strong>In-app review:</strong> after a few minutes of use we ask once whether you like the app. If you say yes, Google Play's own rating sheet opens. We are never told who rated or what they rated.</li>
+      <li><strong>In-app review:</strong> after some use, Google Play's own rating sheet may appear once. We never ask you a question before it and never filter who sees it. We are never told who rated or what they rated.</li>
+      <li><strong>Bengali translation read aloud:</strong> uses your phone's own text-to-speech engine (for example Google Speech Services). The app itself sends nothing; how that engine works is governed by its maker's policy.</li>
       <li>These use Google's official libraries. Any data handling there is governed by Google's privacy policy, not ours.</li>
     </ul>
-    <div class="bn">অ্যাপ আপডেট ও রেটিং — গুগলের নিজস্ব ব্যবস্থা; কে রেটিং দিলেন তা আমরা জানতে পারি না।</div>
+    <div class="bn">অ্যাপ আপডেট ও রেটিং — গুগলের নিজস্ব ব্যবস্থা; রেটিংয়ের আগে কোনো প্রশ্ন নেই, আর কে রেটিং দিলেন তা আমরা জানতে পারি না। বাংলা অর্থ পড়ে শোনায় ফোনের নিজস্ব টেক্সট-টু-স্পিচ; অ্যাপ নিজে কিছু পাঠায় না।</div>
   </section>
 
   <section>
