@@ -85,8 +85,9 @@
     <div class="tw">
     <table>
       <tr><th>Permission</th><th>Why it is used</th><th>If you decline</th></tr>
-      <tr><td><code>ACCESS_COARSE / FINE_LOCATION</code></td>
-          <td>Prayer times and Qibla direction, calculated on your device.</td>
+      <tr><td><code>ACCESS_COARSE_LOCATION</code></td>
+          <td>Prayer times and Qibla direction, calculated on your device. From version 1.0.3 the app
+            asks only for <em>approximate</em> location (about 2 km); precise location is not requested.</td>
           <td>The app uses the district/upazila you pick from a built-in list.</td></tr>
       <tr><td><code>POST_NOTIFICATIONS</code></td>
           <td>Prayer-time reminders and adhan alerts.</td>
@@ -123,7 +124,8 @@
     <h2>3. Location</h2>
     <ul>
       <li>Location is used only to calculate prayer times and the Qibla direction.</li>
-      <li>The calculation happens entirely on your device — your GPS position is never uploaded to us.</li>
+      <li>The calculation happens entirely on your device — your position is never uploaded to us.
+        From version 1.0.3 only approximate location is requested; precise (GPS-level) location is not.</li>
       <li>If the optional weather display is on, a coarse coordinate is sent to the weather sources (section 7).</li>
       <li>For statistics, the district/area you selected in the app is sent to Firebase, and Google derives a coarse country/city-level location from the IP address (section 8a). GPS coordinates are never sent to Firebase.</li>
       <li>We request location only while you are using the app. There is no background location access.</li>
@@ -219,7 +221,7 @@
       <li>The home-screen sky shows temperature and clouds using two open sources — MET Norway and Open-Meteo.</li>
       <li>Only a latitude/longitude is sent, rounded to one decimal — a cell of roughly 11 km. If GPS is on, that coordinate is derived from your own position, but it is far too coarse to identify you. No name, ID or device identifier accompanies it.</li>
       <li>Requested at most once every 15 minutes while the app is open; the last result is cached on the device.</li>
-      <li>It can be turned off entirely in Settings → Weather, after which no request is made.</li>
+      <li>Weather is on by default. It can be turned off entirely in Settings → Weather, after which no request is made.</li>
     </ul>
     <div class="bn">আবহাওয়া MET Norway ও Open-Meteo থেকে; কেবল স্থানাঙ্ক যায়, এক দশমিকে গোল করা (প্রায় ১১ কিমির ঘর); নাম বা পরিচয় কিছুই যায় না;
     সেটিংস → আবহাওয়া বন্ধ করা যায়।</div>
@@ -242,7 +244,7 @@
     Firebase and Firebase Cloud Messaging. Google processes this data as our service provider.</p>
     <ul>
       <li><strong>What is collected:</strong> app-lifecycle events such as app opens, screens viewed and session length; notification received/opened events; app version, Android version and device model; a random per-installation identifier (the Firebase installation / app-instance ID); a coarse location Google derives from the IP address; and the district/area you selected in the app.</li>
-      <li><strong>Notification token:</strong> Cloud Messaging creates a token so announcements can reach the phone. All installations are subscribed to one shared topic, so we never keep a list of tokens.</li>
+      <li><strong>Notification token:</strong> Cloud Messaging creates a token so announcements can reach the phone. We never keep a list of tokens: every installation joins one shared topic, and from version 1.0.3 also one of two broad groups — “Bangladesh” or “abroad”, depending on the place you picked — so that Bangladesh-specific notices (for example Ramadan or Eid dates) are not sent to people abroad, where the dates differ. No country name or location is sent for this.</li>
       <li><strong>Why:</strong> to know how many people use the app, which features and districts need the most attention, and to send important announcements.</li>
       <li><strong>What we see:</strong> aggregated numbers only (for example active users or how many phones opened an announcement). We cannot see your name, and nothing tells us what you read or how you pray.</li>
       <li><strong>Never sent:</strong> worship records, notes, bookmarks, Quran reading positions, GPS coordinates, contacts, or the advertising ID. Advertising-ID collection and ad-personalisation signals are switched off in the app.</li>
@@ -326,8 +328,10 @@
       <li>It does not access your camera, microphone, contacts, calendar, call log, SMS, photos or files
         — the only exceptions are files you pick yourself: a custom adhan tone or a backup file to restore.</li>
       <li>It does not scan the apps installed on your phone. Android requires apps to declare which
-        other apps they may open; we declare exactly three — Facebook, Facebook Lite and Google Play —
-        and nothing else is looked at.</li>
+        other apps they may open. We declare three specific apps — Facebook, Facebook Lite and Google Play —
+        plus a few kinds of action: opening web links, writing an email, picking a file, acting on selected
+        text, and finding the phone's text-to-speech engine. The app does not request the permission to list
+        all installed apps.</li>
       <li>It sends us no crash reports or diagnostics. Usage statistics reach us only as aggregated
         numbers through Firebase (section 8a). (Google Play may collect its own crash data for any Android
         app; that is Google's, governed by their policy.)</li>
