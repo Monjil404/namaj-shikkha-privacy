@@ -48,7 +48,7 @@
   <div class="meta">
     App: Namaz Shikkha, Quran &amp; Hadith (com.techeasylife.namajshikkha)<br>
     Developer: Monirujjaman Monjil — Tech Easy Life<br>
-    Effective / last updated: 13 October 2026
+    Effective / last updated: 28 October 2026
   </div>
 
   <div class="intro">
@@ -157,12 +157,13 @@
       <li><strong>Worship records:</strong> which prayers you ticked, missed-prayer (qaza) counts,
         fasts, taraweeh nights and daily deeds.</li>
       <li><strong>Reading state:</strong> bookmarks and last-read verse.</li>
-      <li><strong>Your own writing:</strong> personal notes — duas, intentions and goals you type in.</li>
-      <li><strong>Counts and settings:</strong> tasbih totals, theme, chosen translation and reciter,
+      <li><strong>Your own writing:</strong> personal notes — duas, intentions and goals you type in — and any dhikr of your own that you add to the tasbih counter.</li>
+      <li><strong>Counts and settings:</strong> tasbih counts (for each dhikr) and totals, theme, chosen translation and reciter,
         calculation method, reminder preferences.</li>
       <li><strong>Downloads:</strong> Quran translations (with footnotes, where the translation has them) and recitation audio.</li>
       <li><strong>Prayer-time location:</strong> the district or city you picked; if you use “current location”, also the last
         location fix, so times stay correct the next time you open the app. It stays on the phone only.</li>
+      <li><strong>Azan reliability check:</strong> to tell you, inside the azan settings, whether reminders are reaching you, the app reads Android's own record of whether the phone closed the app in the background. This check happens on the phone only; nothing about it is sent anywhere.</li>
       <li><strong>Home-screen widget:</strong> if you add it, the next 30 days of prayer times are saved for the widget so it works without opening the app.</li>
       <li>Some of this reflects your religious practice. It is exactly the kind of information we
         made sure the app never sends anywhere — it is not included in statistics and is sent to no server.
@@ -171,7 +172,8 @@
       <li>If Android's own Google backup is turned on for your phone, Android itself may back up the app's settings and records
         to your own Google account so you can restore them on a new phone. That copy lives in your account; we cannot see it.</li>
     </ul>
-    <div class="bn">বুকমার্ক, ট্র্যাকার, নোট, সেটিংস, নামাজের সময়ের জায়গা ও উইজেটের সময় — সব শুধু আপনার ফোনেই; অ্যাপ মুছলে মুছে যায়।
+    <div class="bn">বুকমার্ক, ট্র্যাকার, নোট, তাসবিহের গণনা ও নিজের জিকির, সেটিংস, নামাজের সময়ের জায়গা ও উইজেটের সময় — সব শুধু আপনার ফোনেই; অ্যাপ মুছলে মুছে যায়।
+    আজান ঠিকমতো বাজছে কি না — তা বোঝার যাচাইটিও ফোনের ভেতরেই হয়, কোথাও পাঠানো হয় না।
     ফোনে Android-এর Google ব্যাকআপ চালু থাকলে ফোন নিজেই এগুলো আপনার নিজের Google অ্যাকাউন্টে রাখতে পারে — আমরা দেখতে পাই না।</div>
   </section>
 
@@ -186,10 +188,10 @@
       <li><strong>Copy:</strong> tapping “copy” puts that text on your clipboard, as any app does.</li>
       <li><strong>Backup:</strong> creates a single <code>.json</code> file containing your bookmarks,
         prayer tracker, qaza counts, fasts, taraweeh, daily deeds (amol), reading positions, reminder preferences,
-        app settings — and your personal notes, so that everything comes back on a new phone.
+        app settings, tasbih counts and any dhikr of your own — and your personal notes, so that everything comes back on a new phone.
         It is handed to Android's share sheet — you decide whether it goes to
         Drive, a chat, or your own storage. We never receive it.
-        <br><em>Note: because the backup file contains the duas, intentions and goals you wrote in your personal notes,
+        <br><em>Note: because the backup file contains the duas, intentions and goals you wrote in your personal notes (and your own dhikr),
         think before sharing it with anyone.</em></li>
       <li><strong>Restore:</strong> reads a backup file you pick. If the file is not recognised,
         nothing is changed at all — a half-restore that damages your data is not allowed.</li>
@@ -197,7 +199,7 @@
         outside the app, in Facebook or Play. From that point their own policies apply.</li>
     </ul>
     <div class="bn">শেয়ার, কপি ও ব্যাকআপ — সবই আপনি চাপ দিলে তবেই হয়, আর যেখানে আপনি পাঠান
-    সেখানেই যায়; আমাদের কাছে কখনো আসে না। ব্যাকআপ ফাইলে দৈনিক আমল ও আপনার ব্যক্তিগত নোটও থাকে (যাতে নতুন
+    সেখানেই যায়; আমাদের কাছে কখনো আসে না। ব্যাকআপ ফাইলে দৈনিক আমল, তাসবিহের গণনা, নিজের জিকির ও আপনার ব্যক্তিগত নোটও থাকে (যাতে নতুন
     ফোনে সব ফিরে পান) — নোটে লেখা দুআ-নিয়তও তাতে থাকে, তাই ফাইলটি কারও সাথে শেয়ার করার আগে ভেবে নিন।</div>
   </section>
 
@@ -221,6 +223,8 @@
           <td><a href="https://www.met.no/en/About-us/privacy" target="_blank" rel="noopener">met.no</a></td></tr>
       <tr><td>Open-Meteo</td><td>Optional weather (fallback).</td>
           <td><a href="https://open-meteo.com/en/terms" target="_blank" rel="noopener">open-meteo.com</a></td></tr>
+      <tr><td>Google connectivity check (<code>www.gstatic.com/generate_204</code>)</td><td>Before a download, the app checks whether the internet is actually working (alongside jsDelivr). Nothing is sent — the request is empty, and Google sees only your IP address, as with any website. From version 1.0.6.</td>
+          <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com</a></td></tr>
       <tr><td>Google Firebase (Analytics &amp; Cloud Messaging)</td><td>Anonymous usage statistics and delivering announcements (section 8a). From version 1.0.1.</td>
           <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com</a></td></tr>
       <tr><td>Cloudflare Workers (<code>namaj-mushaf.duetrackbd.workers.dev</code>)</td><td>Downloading the pages of the Hafezi Quran (mushaf), one para at a time — only the page number is sent, nothing about you.</td>
@@ -243,7 +247,7 @@
     offline. Apart from Firebase (section 8a) and the random, app-generated ID that the Nearby mosques
     page sends to our own server (section 6a), no identifier of yours is sent to any of these services.</p>
     <div class="bn">ইন্টারনেট লাগে অনুবাদ, তিলাওয়াত ও হাফেজি কুরআন নামাতে, আবহাওয়া চালু থাকলে, সেটিংসের খোঁজে আর "কাছের মসজিদ"
-    পাতায়; নামানো হয়ে গেলে সব অফলাইনে চলে। যে সার্ভার থেকে ফাইল আসে, সে আপনার IP দেখতে পায় — যেকোনো ওয়েবসাইট খুললেই
+    পাতায়; নামানোর আগে ইন্টারনেট সত্যিই চলছে কি না দেখতে Google-এর একটি ফাঁকা ঠিকানায় (gstatic.com) একবার খোঁজ নেওয়া হয় — কিছু পাঠানো হয় না; নামানো হয়ে গেলে সব অফলাইনে চলে। যে সার্ভার থেকে ফাইল আসে, সে আপনার IP দেখতে পায় — যেকোনো ওয়েবসাইট খুললেই
     যেমন হয়। Firebase আর "কাছের মসজিদ" পাতার এলোমেলো নামহীন আইডি (৬ক) ছাড়া আপনার কোনো আইডি কোথাও যায় না।</div>
   </section>
 
