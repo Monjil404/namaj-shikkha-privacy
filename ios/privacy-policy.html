@@ -145,16 +145,19 @@
     <ul>
       <li>Location is used to calculate prayer times and the Qibla direction, for the optional weather display, and on the optional “Nearby mosques” page.</li>
       <li>Prayer times and Qibla are calculated entirely on your device — for these, your location is not sent anywhere.</li>
+      <li>Outside Bangladesh, to show the name of the place you are in and to recognise your country (so the right calculation method is used), your coordinates are checked with Apple’s own place-name service built into iOS. When you search for a city by name, the text you type goes to the same Apple service. Apple handles this under its own privacy policy; nothing from it is sent to us. In Bangladesh this is not used.</li>
       <li>If the optional weather display is on, a coarse coordinate (rounded to roughly 11 km) is sent to the weather sources (section 7).</li>
-      <li>On the “Nearby mosques” page, while it is open and you are online, your coordinates are sent through our server to Google Places to find mosques around you (section 6a). This is the only case in which precise coordinates leave your device.</li>
-      <li>For statistics, the district/area you selected in the app is sent to Firebase, and Google derives a coarse country/city-level location from the IP address (section 8a). GPS coordinates are never sent to Firebase.</li>
+      <li>On the “Nearby mosques” page, while it is open and you are online, your coordinates are sent through our server to Google Places to find mosques around you (section 6a). Apart from Apple’s place-name check above, this is the only case in which precise coordinates leave your device.</li>
+      <li>For statistics, the district/area you selected in the app is sent to Firebase, and Google derives a coarse country/city-level location from the IP address (section 8a). If you picked a place by searching worldwide, only its country is sent. GPS coordinates are never sent to Firebase.</li>
       <li>Location is used only while you are using the app. There is no background location access.</li>
       <li>The app works without location permission; it then uses the place you select.</li>
     </ul>
-    <div class="bn">নামাজের সময় ও কিবলার হিসাব সম্পূর্ণ ফোনেই — এর জন্য অবস্থান কোথাও যায় না। আবহাওয়া চালু থাকলে মোটা দাগের স্থানাঙ্ক (~১১ কিমি)
-    আবহাওয়ার উৎসে যায় (৭); পরিসংখ্যানের জন্য বেছে নেওয়া জেলা Firebase-এ যায় (৮ক)। "কাছের মসজিদ" পাতা খোলা থাকলে ও ইন্টারনেট থাকলে
-    আশেপাশের মসজিদ খুঁজতে অবস্থান আমাদের সার্ভার হয়ে Google Places-এ যায় (৬ক) — নিখুঁত স্থানাঙ্ক ফোনের বাইরে যায় কেবল এখানেই।
-    পেছনে (ব্যাকগ্রাউন্ডে) অবস্থান কখনো নেওয়া হয় না।</div>
+    <div class="bn">নামাজের সময় ও কিবলার হিসাব সম্পূর্ণ ফোনেই — এর জন্য অবস্থান কোথাও যায় না। বাংলাদেশের বাইরে জায়গার নাম দেখাতে ও দেশ চিনতে
+    (সঠিক হিসাব-পদ্ধতির জন্য) স্থানাঙ্ক iOS-এর ভেতরের Apple-এর নিজস্ব জায়গা-চেনা সার্ভিসে যাচাই হয়; নাম লিখে শহর খুঁজলে লেখাটিও সেখানে যায়।
+    Apple তা নিজের গোপনীয়তা নীতিতে সামলায়, আমাদের কাছে কিছুই আসে না; বাংলাদেশে এটি ব্যবহার হয় না। আবহাওয়া চালু থাকলে মোটা দাগের
+    স্থানাঙ্ক (~১১ কিমি) আবহাওয়ার উৎসে যায় (৭); পরিসংখ্যানের জন্য বেছে নেওয়া জেলা Firebase-এ যায় (৮ক) — বিশ্বের কোনো জায়গা খুঁজে বাছলে
+    কেবল দেশটি। "কাছের মসজিদ" পাতা খোলা থাকলে ও ইন্টারনেট থাকলে আশেপাশের মসজিদ খুঁজতে অবস্থান আমাদের সার্ভার হয়ে Google Places-এ যায়
+    (৬ক) — Apple-এর জায়গা-চেনা ছাড়া নিখুঁত স্থানাঙ্ক ফোনের বাইরে যায় কেবল এখানেই। পেছনে (ব্যাকগ্রাউন্ডে) অবস্থান কখনো নেওয়া হয় না।</div>
   </section>
 
   <section>
@@ -200,12 +203,14 @@
       <tr><th>Service</th><th>Used for</th><th>Their privacy policy</th></tr>
       <tr><td>jsDelivr (open CDN)</td><td>Downloading the Muhiuddin Khan and Zohurul Hoque translations.</td>
           <td><a href="https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net" target="_blank" rel="noopener">jsdelivr.com</a></td></tr>
-      <tr><td>QuranEnc.com</td><td>Downloading the Abu Bakr Zakaria translation and its footnotes — only the surah number is sent.</td>
+      <tr><td>QuranEnc.com</td><td>Downloading the Abu Bakr Zakaria (Bangla) and Rowwad Translation Center (English) translations and their footnotes — only the surah number is sent.</td>
           <td><a href="https://quranenc.com/" target="_blank" rel="noopener">quranenc.com</a></td></tr>
       <tr><td>everyayah.com</td><td>Downloading verse-by-verse recitation audio.</td>
           <td><a href="https://everyayah.com/" target="_blank" rel="noopener">everyayah.com</a></td></tr>
       <tr><td>Quran.com API (<code>api.qurancdn.com</code>)</td><td>Full-surah recitation files, verse timings and word-by-word meaning.</td>
           <td><a href="https://quran.com/privacy" target="_blank" rel="noopener">quran.com</a></td></tr>
+      <tr><td>Apple (iOS place names — CLGeocoder)</td><td>Only outside Bangladesh: naming the place you are in from your coordinates, recognising your country, and searching for a city by name. Built into iOS; handled by Apple, nothing reaches us.</td>
+          <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com</a></td></tr>
       <tr><td>MET Norway</td><td>Optional weather on the home screen.</td>
           <td><a href="https://www.met.no/en/About-us/privacy" target="_blank" rel="noopener">met.no</a></td></tr>
       <tr><td>Open-Meteo</td><td>Optional weather (fallback).</td>
@@ -240,7 +245,7 @@
       <li><strong>On the device:</strong> to show how far away nearby mosques are and in which direction, the app uses your location, only while the page is open. Distances and directions are calculated on your device. The built-in mosque list comes from OpenStreetMap (and Overture Maps).</li>
       <li><strong>Nearby search (with internet):</strong> to show all mosques around you, the app sends your latitude/longitude to our server <code>namaj-config.duetrackbd.workers.dev</code> (hosted on Cloudflare), together with a random anonymous ID that the app generates itself — it is not a hardware ID and not the advertising identifier. Our server forwards <em>only the location</em> to the Google Places API, which returns the nearby mosques.</li>
       <li><strong>What our server keeps:</strong> neither your location nor Google's results are stored on our server. The anonymous ID is hashed immediately and used only to count how many searches a device made that day, so the free daily quota stays available for everyone; that count expires after about 2 days.</li>
-      <li><strong>Area list:</strong> to fetch the up-to-date OpenStreetMap list for your area, only the number of a grid cell of about 28 km is sent — not your coordinates.</li>
+      <li><strong>Area list:</strong> to fetch the up-to-date OpenStreetMap list for your area, only the number of a grid cell is sent — about 28 km in Bangladesh, about 500 km elsewhere — not your coordinates.</li>
       <li><strong>“Add a mosque here”:</strong> only if you tap it yourself, the mosque name you type and your current location (as the mosque's location) are sent to our server. The proposal is stored with a short hash of the anonymous ID and a short hash of your network address (never the raw ID or IP address) — used only to count proposals per day and to prevent abuse. After review, the mosque (its name and location only) may appear in everyone's list. Your name or any other information about you is not sent.</li>
     </ul>
     <div class="bn">ইন্টারনেট থাকলে আশেপাশের মসজিদ দেখাতে আপনার অবস্থান আমাদের সার্ভার হয়ে Google Places-এ যায়, সাথে অ্যাপের বানানো একটি
